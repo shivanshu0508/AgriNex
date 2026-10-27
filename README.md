@@ -1,0 +1,2 @@
+# AgriNex
+MERN based project
