@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --agrinext-green-50: #effcf3;
+  --agrinext-green-100: #dff7e7;
+  --agrinext-green-500: #1f9d59;
+  --agrinext-green-600: #12814a;
+  --agrinext-green-700: #0f6a3d;
+  --agrinext-green-900: #123724;
+  --agrinext-slate-900: #0f172a;
+  --agrinext-slate-700: #334155;
+  --agrinext-slate-500: #64748b;
+  --agrinext-surface: #f6faf7;
+  --agrinext-card: #ffffff;
+  --agrinext-border: rgba(15, 118, 110, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(31, 157, 89, 0.12), transparent 28%),
+    linear-gradient(180deg, #f7faf7 0%, #f6faf7 100%);
+  color: var(--agrinext-slate-900);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
