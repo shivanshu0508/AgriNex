@@ -9,7 +9,9 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const isOwner = pathname.startsWith("/owner");
-  const isFarmer = pathname.startsWith("/farmer") || pathname === "/my-bookings";
+  const isFarmer = pathname.startsWith("/farmer")
+    || pathname === "/my-bookings"
+    || (pathname === "/equipment" && user?.role === "farmer");
   const isWorkspace = isOwner || isFarmer;
   const isAuth = pathname === "/login" || pathname === "/register";
 

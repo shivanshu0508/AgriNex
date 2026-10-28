@@ -75,6 +75,9 @@ function RentalRequests() {
                       <button type="button" onClick={() => updateStatus(request._id, "rejected")} className="inline-flex items-center gap-2 rounded-lg border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 hover:bg-red-50"><XCircle size={16} />Reject</button>
                     </div>
                   )}
+                  {request.status === "approved" && (
+                    <button type="button" onClick={() => updateStatus(request._id, "completed")} className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700"><CheckCircle2 size={16} />Mark complete</button>
+                  )}
                 </div>
               </div>
             </article>

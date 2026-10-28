@@ -140,7 +140,7 @@ function Equipment() {
             Agricultural Equipment Rental
           </p>
           <h1 className="mt-4 text-4xl font-black md:text-5xl">
-            Find the Right Equipment
+            Equipment near you
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-green-100/70">
             Browse live listings from local equipment owners and find what your farm needs.

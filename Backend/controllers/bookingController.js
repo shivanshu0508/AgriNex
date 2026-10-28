@@ -118,12 +118,12 @@ const getOwnerBookings = async (req, res, next) => {
 const updateBookingStatus = async (req, res, next) => {
   try {
     const { status } = req.body;
-    const allowedStatuses = ["approved", "rejected"];
+    const allowedStatuses = ["approved", "rejected", "completed"];
 
     if (!allowedStatuses.includes(status)) {
       return res.status(400).json({
         success: false,
-        message: "Status must be approved or rejected.",
+        message: "Status must be approved, rejected, or completed.",
       });
     }
 
@@ -143,10 +143,15 @@ const updateBookingStatus = async (req, res, next) => {
       });
     }
 
-    if (booking.status !== "pending") {
+    const canRespondToRequest =
+      booking.status === "pending" && ["approved", "rejected"].includes(status);
+    const canCompleteBooking =
+      booking.status === "approved" && status === "completed";
+
+    if (!canRespondToRequest && !canCompleteBooking) {
       return res.status(400).json({
         success: false,
-        message: "Only pending bookings can be approved or rejected.",
+        message: "Pending bookings can be approved or rejected; approved bookings can be completed.",
       });
     }
 
@@ -168,6 +173,9 @@ const updateBookingStatus = async (req, res, next) => {
     }
 
     booking.status = status;
+    if (status === "completed") {
+      booking.paymentStatus = "paid";
+    }
     await booking.save();
 
     return apiResponse(res, 200, `Booking ${status}.`, booking);
