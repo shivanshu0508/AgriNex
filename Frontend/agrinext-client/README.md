@@ -1,5 +1,19 @@
 # React + Vite
 
+## Vercel deployment
+
+Set the project root directory to `Frontend/agrinext-client` in Vercel and add this
+environment variable for Production (and Preview if needed):
+
+```env
+VITE_API_URL=https://agrinex-ov8y.onrender.com/api
+```
+
+Vite embeds `VITE_` variables at build time, so redeploy after changing them.
+If location suggestions are needed, also set `VITE_GEOAPIFY_API_KEY` in Vercel.
+
+For local development, copy `.env.example` to `.env` and add your Geoapify API key.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
